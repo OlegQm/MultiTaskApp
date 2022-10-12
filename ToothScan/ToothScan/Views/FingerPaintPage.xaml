@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+             xmlns:tt="clr-namespace:TouchTracking.Forms;assembly=TouchTracking.Forms"
+             x:Class="ToothScan.Views.FingerPaintPage"
+             Title="Drawing"
+             BackgroundColor="Gainsboro"
+             Shell.FlyoutBehavior="Disabled">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="EraseLine" Order="Secondary" Text="Eraser" Clicked="EraseLine_Clicked"/>
+        <ToolbarItem x:Name="ClearButton" Order="Secondary" Text="Clear" Clicked="ClearButton_Clicked"/>
+        <ToolbarItem x:Name="ClearLine" IconImageSource="previous_text.png" Clicked="ClearLine_Clicked"/>
+        <ToolbarItem x:Name="NextLine" IconImageSource="next_text.png" Clicked="NextLine_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <Grid x:Name="GeneralGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="7*" />
+            <ColumnDefinition Width="7*" />
+        </Grid.ColumnDefinitions>
+
+        <Picker x:Name="colorPicker"
+                Title="Color"
+                Grid.Row="0"
+                Grid.Column="0"
+                Margin="10"
+                BackgroundColor="DarkGray"
+                FontSize="15"
+                HorizontalTextAlignment="Center">
+            <Picker.Items>
+                <x:String>Red</x:String>
+                <x:String>Green</x:String>
+                <x:String>Blue</x:String>
+                <x:String>Aqua</x:String>
+                <x:String>Fuchsia</x:String>
+                <x:String>Yellow</x:String>
+                <x:String>Black</x:String>
+                <x:String>Gray</x:String>
+                <x:String>White</x:String>
+            </Picker.Items>
+
+            <Picker.SelectedIndex>
+                0
+            </Picker.SelectedIndex>
+        </Picker>
+
+        <Picker x:Name="widthPicker"
+                Title="Width"
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="10"
+                BackgroundColor="DarkGray"
+                FontSize="15"
+                HorizontalTextAlignment="Center">
+            <Picker.Items>
+                <x:String>Thin (1 px)</x:String>
+                <x:String>Thinish (2 px)</x:String>
+                <x:String>Medium (5 px)</x:String>
+                <x:String>Thickish (10 px)</x:String>
+                <x:String>Thick (20 px)</x:String>
+            </Picker.Items>
+
+            <Picker.SelectedIndex>
+                0
+            </Picker.SelectedIndex>
+        </Picker>
+
+
+        <Grid Grid.Row="1"
+              Grid.Column="0"
+              Grid.ColumnSpan="2">
+
+            <skia:SKCanvasView x:Name="canvasView"
+                               PaintSurface="OnCanvasViewPaintSurface"/>
+            <Grid.Effects>
+                <tt:TouchEffect Capture="True"
+                                TouchAction="OnTouchEffectAction"/>
+            </Grid.Effects>
+        </Grid>
+    </Grid>
+</ContentPage>

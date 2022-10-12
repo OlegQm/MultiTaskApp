@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ToothScan.Devices"
+             Title="Select Device"
+             BackgroundColor="Black">
+    <ContentPage.Content>
+        <ScrollView>
+            <AbsoluteLayout>
+                <StackLayout>
+                        <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="64" />
+                        </Grid.RowDefinitions>
+                        <Button Grid.Column="0" x:Name="EnableBluetooth" Text="Enable Bluetooth" 
+                            IsEnabled="False" Clicked="EnableBluetooth_Clicked" />
+                        <Button Grid.Column="1" x:Name="DisableBluetooth" Text="Disable Bluetooth" 
+                        IsEnabled="False" Clicked="DisableBluetooth_Clicked" />
+                    </Grid>
+                <Label Text="Select Device to connect:" FontSize="24"/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="200" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="200" />
+                    </Grid.RowDefinitions>
+                    <ListView x:Name="lvBondedDevices"
+                              CachingStrategy="RecycleElement"
+                              ItemSelected="lvBondedDevices_ItemSelected"
+                              Grid.Row="0">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextCell TextColor="Violet" Text="{Binding Name}" DetailColor="White" Detail="{Binding Address}"/>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                    </ListView>
+                    <Button Text="Search" Clicked="searchDevice" Grid.Row="1"/>
+                    <ListView x:Name="DevicesList"
+                      CachingStrategy="RecycleElement"
+                      ItemSelected="DevicesList_ItemSelected"
+                      Grid.Row="2">
+                        <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextCell TextColor="Violet" Text="{Binding NativeDevice.Name}" DetailColor="White" Detail="{Binding NativeDevice.Address}"/>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            </StackLayout>
+                <ContentView x:Name="popupLoadingView" Padding="10, 0" IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                    <StackLayout VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="Gray">
+                        <StackLayout Orientation="Vertical" BackgroundColor="Gray">
+                            <Label x:Name="lblLoadingText" TextColor="Blue" VerticalOptions="Center" HorizontalOptions="Center" VerticalTextAlignment="Center" FontSize="18" Text="Device info:"/>
+                            <Label x:Name="DeviceInformation" TextType="Html" Margin="10"/>
+                            <Grid VerticalOptions="EndAndExpand">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Button x:Name="CopyBtn" Margin="5" Grid.Column="0" Text="Copy" CornerRadius="10" Clicked="CopyBtn_Clicked"/>
+                                <Button x:Name="CloseBtn" Margin="5" Grid.Column="1" Text="Close" CornerRadius="10" Clicked="CloseBtn_Clicked"/>
+                            </Grid>
+                        </StackLayout>
+                    </StackLayout>
+                </ContentView>
+                <ContentView x:Name="popupInfosView" Padding="10, 0" IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                    <StackLayout VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="Gray">
+                        <StackLayout Orientation="Vertical" BackgroundColor="Gray">
+                            <Label x:Name="lblInfosText" TextColor="Blue" VerticalOptions="Center" HorizontalOptions="Center" VerticalTextAlignment="Center" FontSize="18" Text="Device info:"/>
+                            <Label x:Name="ShortDeviceInfo" TextType="Html" Margin="10"/>
+                            <Grid VerticalOptions="EndAndExpand">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Button x:Name="CopyShortInfo" Margin="5" Grid.Column="0" Text="Copy" CornerRadius="10" Clicked="CopyShortInfo_Clicked"/>
+                                <Button x:Name="CloseShortInfo" Margin="5" Grid.Column="1" Text="Close" CornerRadius="10" Clicked="CloseShortInfo_Clicked"/>
+                            </Grid>
+                        </StackLayout>
+                    </StackLayout>
+                </ContentView>
+            </AbsoluteLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ToothScan.Views.AboutPage"
+             xmlns:vm="clr-namespace:ToothScan.ViewModels"
+             BackgroundColor="Black">
+    <!--Title="{Binding Title}"-->
+
+    <ContentPage.BindingContext>
+        <vm:AboutViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="ClearButton" Order="Secondary" Text="Clear scanner text" Clicked="ClearButton_Clicked"/>
+        <ToolbarItem x:Name="BackButton" Order="Secondary" Text="Back scanner text" Clicked="BackButton_Clicked"/>
+    </ContentPage.ToolbarItems>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <ContentView Grid.Row="0">
+            <StackLayout BackgroundColor="Black" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+                <Label/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Image Source="toothscan_logo.png" VerticalOptions="Center" HeightRequest="64" />
+                </StackLayout>
+            </StackLayout>
+        </ContentView>
+        <ScrollView Grid.Row="1">
+            <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
+                <StackLayout  BackgroundColor="Lavender" Padding="10,10,10,10">
+                    <Button x:Name="Bluetooth" Text="BLUETOOTH" Clicked="Bluetooth_Clicked"></Button>
+                </StackLayout>
+                <StackLayout BackgroundColor="Lavender" Padding="10,10,10,10">
+                    <Button x:Name="DrawButton" Text="DRAW" Clicked="DrawButton_Clicked"/>
+                </StackLayout>
+                <StackLayout BackgroundColor="Gainsboro" Padding="10,10,10,10">
+                    <Button x:Name="ScannerButton" Text="SCANNER" Clicked="ScannerButton_Clicked"/>
+                    <Label x:Name="QRCode" TextColor="White" BackgroundColor="DeepSkyBlue"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Text="Link Search"
+                            x:Name="LinkSearchButton"
+                            Clicked="LinkSearchButton_Clicked"/>
+                        <Button
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Text="Copy"
+                            x:Name="CopyButton"
+                            Clicked="CopyButton_Clicked"/>
+                        <Button
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Text="Text search"
+                            x:Name="NormalSearchButton"
+                            Clicked="NormalSearchButton_Clicked"/>
+                        <Button
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Text="Share"
+                            x:Name="ShareButton"
+                            Clicked="ShareButton_Clicked"/>
+                    </Grid>
+                </StackLayout>
+                <StackLayout BackgroundColor="Lavender" Padding="10,10,10,10">
+                    <Button Text="ABOUT PROJECT"
+                        Command="{Binding OpenWebCommand}"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White"/>
+                </StackLayout>
+                <StackLayout BackgroundColor="Lavender" Padding="10,10,10,10">
+                    <Button Text="Share PROJECT"
+                        Clicked="ShareProject_Clicked"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+
+</ContentPage>

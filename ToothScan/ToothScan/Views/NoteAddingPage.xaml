@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ToothScan.Views.NoteAddingPage"
+             Title="Note"
+             BackgroundColor="Black"
+             Shell.FlyoutBehavior="Disabled"
+             xmlns:Local="clr-namespace:ToothScan">
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior x:Name="PreviousPage"/>
+    </Shell.BackButtonBehavior>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="SearchButton" IconImageSource="search.png" Text="Search" Clicked="SearchButton_Clicked"/>
+        <ToolbarItem x:Name="BackButton" IconImageSource="previous_text.png" Clicked="BackButton_Clicked"/>
+        <ToolbarItem x:Name="NextButton" IconImageSource="next_text.png" Clicked="NextButton_Clicked"/>
+        <ToolbarItem x:Name="CopyButton" Order="Secondary" Text="Copy text" Clicked="CopyButton_Clicked"/>
+        <ToolbarItem x:Name="ReplaceDoubleSpaces" Order="Secondary" Text="Remove double spaces" Clicked="ReplaceDoubleSpaces_Clicked"/>
+        <ToolbarItem x:Name="ScrollToEnd" Order="Secondary" Text="Scroll to end" Clicked="ScrollToEnd_Clicked"/>
+        <ToolbarItem x:Name="ScrollToBegin" Order="Secondary" Text="Scroll to begin" Clicked="ScrollToBegin_Clicked"/>
+        <ToolbarItem x:Name="Clear" Order="Secondary" Text="Clear all text" Clicked="Clear_Clicked"/>
+        <ToolbarItem x:Name="TextOptions" Order="Secondary" Text="Change text color" Clicked="TextOptions_Clicked"/>
+        <ToolbarItem x:Name="BackgroundOptions" Order="Secondary" Text="Change background color" Clicked="BackgroundOptions_Clicked"/>
+        <ToolbarItem x:Name="VoiceText" Order="Secondary" Text="Voice text" Clicked="VoiceText_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid x:Name="SearchGrid" ColumnDefinitions="6*,*, *" RowDefinitions="auto, auto, auto">
+                <Local:SearchBarExtended Grid.Column="0" Grid.Row="0" Placeholder="Search text..." x:Name="Searcher"
+                           BackgroundColor="DarkGray" SearchButtonPressed="Searcher_SearchButtonPressed" TextChanged="Searcher_TextChanged"/>
+                <Button x:Name="CancelSerch" Grid.Row="0" Grid.Column="1" Text="×"
+                        FontSize="32" CornerRadius="10" Clicked="CancelSearch_Clicked"/>
+                <Button x:Name="NextSearchElement" Grid.Row="0" Grid.Column="2"
+                        Text=">" FontSize="32" CornerRadius="10" Clicked="NextSearchElement_Clicked"/>
+            </Grid>
+            <ScrollView x:Name="Scroll">
+                <StackLayout>
+                    <Local:EditorExtended Placeholder="Note text"
+                    x:Name="NoteEditor"
+                    Text="{Binding Text}"
+                    AutoSize="TextChanges"
+                    FontSize="18"
+                    Margin="10"
+                    TextColor="White"
+                    TextChanged="NoteEditor_TextChanged"/>
+                    <Label x:Name="NoteLabel" TextType="Html" FontSize="18" Margin="10" TextColor="White"/>
+                    <Grid ColumnDefinitions="*,*">
+                        <Button Grid.Column="0"
+                        x:Name="SaveButton"
+                        Text="Save"
+                        Clicked="OnSaveButton_Clicked"/>
+                        <Button Grid.Column="1"
+                        x:Name="DeleteButton"
+                        Text="Delete"
+                        Clicked="OnDeleteButton_Clicked"/>
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

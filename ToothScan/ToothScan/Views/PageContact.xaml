@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ToothScan.Views.PageContact"
+             Title="Contact me"
+             BackgroundColor="DarkGray">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="ClearEmail" Order="Secondary" Text="Clear E-mail text" Clicked="ClearEmail_Clicked"/>
+        <ToolbarItem x:Name="BackEmailText" Order="Secondary" Text="Back E-mail text" Clicked="BackEmailText_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="10,10,10,10" HorizontalOptions="Center" BackgroundColor="Gray">
+            <Image HeightRequest="300" WidthRequest="300" Source="Telegram.png" HorizontalOptions="Center"/>
+            <Grid HorizontalOptions="Center" VerticalOptions="Center" ColumnDefinitions="auto,auto">
+                    <Label x:Name="Telegram" Grid.Column="0" Text="@Tens0rFlow" FontSize="28" TextColor="White"/>
+                <Button x:Name="TelegramButton" Grid.Column="1" Text="Copy" CornerRadius="10" Clicked="TelegramButton_Clicked"/>
+            </Grid>
+                <BoxView HorizontalOptions="FillAndExpand" Color="White" HeightRequest="2" Margin="20"/>
+                <Image HeightRequest="300" WidthRequest="300" Source="Instagram.png" HorizontalOptions="Center"/>
+                <Grid HorizontalOptions="Center" VerticalOptions="Center" ColumnDefinitions="auto,auto">
+                    <Label x:Name="Instagram" Grid.Column="0" Text="@oleg_qm_4856" FontSize="23" TextColor="White"/>
+                    <Button x:Name="InstagramButton" Grid.Column="1" Text="Copy" CornerRadius="10" Clicked="InstagramButton_Clicked"/>
+                </Grid>
+                <BoxView HorizontalOptions="FillAndExpand" Color="White" HeightRequest="2" Margin="20"/>
+                <Label Text="Write me (by E-mail):" HorizontalOptions="Center" FontSize="28" Padding="0,0,0,20" TextColor="White"/>
+                <Grid Padding="0,0,0,10" ColumnDefinitions="6*, auto" RowDefinitions="auto,auto,auto">
+                    <Editor x:Name="EmailLetter" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Placeholder="Write your message..."
+                            AutoSize="TextChanges" BackgroundColor="DimGray" Keyboard="Chat" TextChanged="EmailText_TextChanged"/>
+                    <Button x:Name="SendButton" Grid.Row="0" Grid.Column="1" Text="Send" CornerRadius="10" Clicked="SendButton_Clicked"/>
+                    <Label Grid.Row="1" Grid.Column="1"/>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

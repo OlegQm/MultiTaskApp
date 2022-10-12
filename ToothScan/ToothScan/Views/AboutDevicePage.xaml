@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ToothScan.Views.AboutDevicePage"
+             Title="About Device"
+             BackgroundColor="Gray">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout VerticalOptions="Center" Margin="10">
+                <StackLayout BackgroundColor="DarkGray">
+                    <Label Margin="15" FontSize="24" HorizontalTextAlignment="Center" Text="Hardware" TextColor="White"/>
+                    <Grid RowSpacing="3" ColumnSpacing="3" Margin="15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Margin="5" BackgroundColor="Aqua" Grid.Column="0" Grid.Row="0" x:Name="HardwareInfo0" TextType="Html" TextColor="White" FontSize="16"/>
+                        <Label Margin="5" BackgroundColor="Aqua" Grid.Column="1" Grid.Row="0" x:Name="HardwareInfo1" TextType="Html" TextColor="White" FontSize="16"/>
+                        <Label Margin="5" BackgroundColor="Aqua" Grid.Column="0" Grid.Row="1" x:Name="HardwareInfo2" TextType="Html" TextColor="White" FontSize="16"/>
+                        <Label Margin="5" BackgroundColor="Aqua" Grid.Column="1" Grid.Row="1" x:Name="HardwareInfo3" TextType="Html" TextColor="White" FontSize="16"/>
+                        <Label Margin="5" Grid.Column="0" Grid.Row="2" x:Name="HardwareInfo4" TextType="Html" TextColor="White" FontSize="16"/>
+                        <Label Margin="5" Grid.Column="1" Grid.Row="2" x:Name="HardwareInfo5" TextType="Html" TextColor="White" FontSize="16"/>
+                        <Label Margin="5" Grid.Column="0" Grid.Row="3" x:Name="HardwareInfo6" TextType="Html" TextColor="White" FontSize="16"/>
+                        <Label Margin="5" Grid.Column="1" Grid.Row="3" x:Name="HardwareInfo7" TextType="Html" TextColor="White" FontSize="16"/>
+                        <Label Margin="5" Grid.Column="0" Grid.Row="4" x:Name="HardwareInfo8" TextType="Html" TextColor="White" FontSize="16"/>
+                        <Label Margin="5" Grid.Column="1" Grid.Row="4" x:Name="HardwareInfo9" TextType="Html" TextColor="White" FontSize="16"/>
+                    </Grid>
+                    
+                    <BoxView HorizontalOptions="FillAndExpand" Color="White" HeightRequest="2" Margin="20"/>
+
+                    <Label Margin="15" FontSize="24" HorizontalTextAlignment="Center" Text="Display" TextColor="White"/>
+                    <Grid RowSpacing="3" ColumnSpacing="3" Margin="15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <!--LineHeight="1.2"-->
+                        <Label Margin="5" Grid.Column="0" Grid.Row="0" x:Name="ScreenInfo0" TextType="Html" TextColor="White" FontSize="16"/>
+                        <Label Margin="5" Grid.Column="1" Grid.Row="0" x:Name="ScreenInfo1" TextType="Html" TextColor="White" FontSize="16"/>
+                        <Label Margin="5" Grid.Column="0" Grid.Row="1" x:Name="ScreenInfo2" TextType="Html" TextColor="White" FontSize="16"/>
+                        <Label Margin="5" Grid.Column="1" Grid.Row="1" x:Name="ScreenInfo3" TextType="Html" TextColor="White" FontSize="16"/>
+                        <Label Margin="5" Grid.Column="0" Grid.Row="2" x:Name="ScreenInfo4" TextType="Html" TextColor="White" FontSize="16"/>
+                        <Label Margin="5" Grid.Column="1" Grid.Row="2" x:Name="ScreenInfo5" TextType="Html" TextColor="White" FontSize="16"/>
+                    </Grid>
+
+                    <BoxView HorizontalOptions="FillAndExpand" Color="White" HeightRequest="2" Margin="20"/>
+                        
+                    <Label Margin="15" FontSize="24" HorizontalTextAlignment="Center" Text="Battery" TextColor="White"/>
+                    <Grid RowSpacing="3" ColumnSpacing="3" Margin="15">
+                        <Label Margin="5" Grid.Column="0" Grid.Row="0" x:Name="BatteryInfo0" TextType="Html" TextColor="White" FontSize="16"/>
+                        <Label Margin="5" Grid.Column="1" Grid.Row="0" x:Name="BatteryInfo1" TextType="Html" TextColor="White" FontSize="16"/>
+                        <Label Margin="5" Grid.Column="0" Grid.Row="1" x:Name="BatteryInfo2" TextType="Html" TextColor="White" FontSize="16"/>
+                        <Label Margin="5" Grid.Column="1" Grid.Row="1" x:Name="BatteryInfo3" TextType="Html" TextColor="White" FontSize="16"/>
+                        <Label Margin="5" Grid.Column="0" Grid.Row="2" x:Name="BatteryInfo4" TextType="Html" TextColor="White" FontSize="16"/>
+                        <Label Margin="5" Grid.Column="1" Grid.Row="2" x:Name="BatteryInfo5" TextType="Html" TextColor="White" FontSize="16"/>
+                        <Label Margin="5" Grid.Column="0" Grid.Row="3" x:Name="BatteryInfo6" TextType="Html" TextColor="White" FontSize="16"/>
+                        <Label Margin="5" Grid.Column="1" Grid.Row="3" x:Name="BatteryInfo7" TextType="Html" TextColor="White" FontSize="16"/>
+                    </Grid>
+                    <Label/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
